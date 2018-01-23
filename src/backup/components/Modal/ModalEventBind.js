@@ -1,0 +1,20 @@
+import {EventBus} from './EventBus'
+
+export default function (modalRef) {
+  if (!modalRef) return
+  EventBus.$on('alert', (param = {}) => {
+    modalRef.modalAlert(param)
+  })
+
+  EventBus.$on('confirm', (param = {}) => {
+    modalRef.modalConfirm(param)
+  })
+
+  EventBus.$on('prompt', (param = {}) => {
+    modalRef.modalPrompt(param)
+  })
+
+  EventBus.$on('tip', (param = {}) => {
+    modalRef.modalTip(param)
+  })
+}
